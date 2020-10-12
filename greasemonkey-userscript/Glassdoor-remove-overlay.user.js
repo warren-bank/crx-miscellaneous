@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Glassdoor - remove "hard sell" overlay
 // @description  Undo dynamic changes made by website to cripple functionality when the visitor is not logged in (to a free user account).
-// @version      0.1.0
+// @version      0.1.1
 // @match        *://glassdoor.com/*
 // @match        *://*.glassdoor.com/*
 // @icon         https://www.glassdoor.com/favicon.ico
@@ -22,12 +22,28 @@ var user_options = {
 }
 
 var payload = function(){
-  var el = document.getElementById('HardsellOverlay')
+  var remove_overlay = function() {
+    var el = document.getElementById('HardsellOverlay')
 
-  if (el) {
-    el.remove()
-    document.body.style.overflow = 'auto'
-    window.addEventListener('scroll', function(event) {event.stopPropagation()}, true)
+    if (el) {
+      el.remove()
+      document.body.style.overflow = 'auto'
+      window.addEventListener('scroll', function(event) {event.stopPropagation()}, true)
+    }
+
+    return !!el
+  }
+
+  var show_top_navmenu = function() {
+    var el = document.getElementById('EmpLinksWrapper')
+
+    if (el) {
+      el.setAttribute('id', 'x_EmpLinksWrapper')
+    }
+  }
+
+  if (remove_overlay()) {
+    show_top_navmenu()
   }
 }
 
