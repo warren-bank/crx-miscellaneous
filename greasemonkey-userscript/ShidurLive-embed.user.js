@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         ShidurLive
 // @description  Transfers embedded video stream to alternate video players: WebCast-Reloaded, ExoAirPlayer.
-// @version      0.1.0
+// @version      0.1.1
 // @match        *://shidurlive.com/embed/*
+// @match        *://*.shidurlive.com/embed/*
 // @icon         https://shidurlive.com/shidur3.png
 // @run-at       document-idle
 // @homepage     https://github.com/warren-bank/crx-miscellaneous/tree/greasemonkey-userscript
