@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ShidurLive
 // @description  Transfers embedded video stream to alternate video players: WebCast-Reloaded, ExoAirPlayer.
-// @version      0.1.1
+// @version      0.1.2
 // @match        *://shidurlive.com/embed/*
 // @match        *://*.shidurlive.com/embed/*
 // @icon         https://shidurlive.com/shidur3.png
@@ -30,6 +30,16 @@ var payload = function(){
     let hls_url = (player && player.options && player.options.source)
       ? player.options.source
       : ''
+
+    if (!hls_url && (typeof startPlayer === 'function')) {
+      const hls_url_regex = /^.*source:\s*(['"])([^'"]+)(?:\1).*$/i
+
+      const src = startPlayer.toString().replace(/[\r\n]+/g, ' ')
+      const url = src.replace(hls_url_regex, '$2')
+
+      if (url !== src)
+        hls_url = url
+    }
 
     // Links on site use HTTPS.
     // Server supports HTTP.
