@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ShidurLive
 // @description  Transfers embedded video stream to alternate video players: WebCast-Reloaded, ExoAirPlayer.
-// @version      0.1.2
+// @version      0.1.3
 // @match        *://shidurlive.com/embed/*
 // @match        *://*.shidurlive.com/embed/*
 // @icon         https://shidurlive.com/shidur3.png
@@ -27,9 +27,11 @@ var user_options = {
 var payload = function(){
 
   const get_hls_url = function(){
-    let hls_url = (player && player.options && player.options.source)
-      ? player.options.source
-      : ''
+    let hls_url = ''
+
+    if (!hls_url && player && player.options && player.options.source) {
+      hls_url = player.options.source
+    }
 
     if (!hls_url && (typeof startPlayer === 'function')) {
       const hls_url_regex = /^.*source:\s*(['"])([^'"]+)(?:\1).*$/i
@@ -40,14 +42,6 @@ var payload = function(){
       if (url !== src)
         hls_url = url
     }
-
-    // Links on site use HTTPS.
-    // Server supports HTTP.
-    // ExoAirPlayer on Android 4.4 won't play HTTPS link.
-    // I didn't investigate whether it's an untrusted root certificate authority or a TLS handshake issue;
-    // My guess is the former.
-    // Switching to HTTP fixes the problem.
-    hls_url = hls_url.replace(/^(http)s/i, '$1')
 
     return hls_url
   }
