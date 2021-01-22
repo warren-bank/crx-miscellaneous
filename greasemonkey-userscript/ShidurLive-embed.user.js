@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ShidurLive
 // @description  Transfers embedded video stream to alternate video players: WebCast-Reloaded, ExoAirPlayer.
-// @version      0.1.3
+// @version      0.1.4
 // @match        *://shidurlive.com/embed/*
 // @match        *://*.shidurlive.com/embed/*
 // @icon         https://shidurlive.com/shidur3.png
@@ -20,6 +20,12 @@
 var user_options = {
   "script_injection_delay_ms":    0,
   "redirect_to_webcast_reloaded": true,
+  "redirect_to_http_subdomain":   false,
+    // =============================================================================================
+    // only needed for Android API < 20, because of very limited set of supported TLS cipher suites
+    //   https://www.ssllabs.com/ssltest/analyze.html?d=us.shidurlive.com
+    //   https://developer.android.com/reference/javax/net/ssl/SSLEngine#cipher-suites
+    // =============================================================================================
   "force_http":                   true,
   "force_https":                  false
 }
@@ -41,6 +47,12 @@ var payload = function(){
 
       if (url !== src)
         hls_url = url
+    }
+
+    if (hls_url && window.redirect_to_http_subdomain) {
+      const hls_url_regex = /^https:\/\/[^\.\/]+\.(shidurlive\.com)/i
+
+      hls_url = hls_url.replace(hls_url_regex, 'http://s.$1')
     }
 
     return hls_url
@@ -125,8 +137,9 @@ var inject_function = function(_function){
 
 var inject_options = function(){
   var _function = `function(){
-    window.force_http  = ${user_options['force_http']}
-    window.force_https = ${user_options['force_https']}
+    window.redirect_to_http_subdomain = ${user_options['redirect_to_http_subdomain']}
+    window.force_http                 = ${user_options['force_http']}
+    window.force_https                = ${user_options['force_https']}
   }`
   inject_function(_function)
 }
