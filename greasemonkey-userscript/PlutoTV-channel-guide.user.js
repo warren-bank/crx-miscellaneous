@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PlutoTV - channel guide
-// @description  Apply CSS/JS tweaks to "live tv" page: hide video player, enlarge channel guide, disable window.onkeydown() handler to allow scrolling page vertically with arrow keys.
-// @version      0.2.0
+// @description  Apply CSS/JS tweaks to "live tv" page: hide video player, enlarge channel guide, disable window.onkeydown() handler to allow scrolling page vertically with arrow keys, retain focus on scrollable area.
+// @version      0.3.0
 // @match        *://pluto.tv/live-tv/*
 // @match        *://*.pluto.tv/live-tv/*
 // @icon         https://pluto.tv/images/favicon.png
@@ -43,7 +43,14 @@ const payload = function(){
   style.innerHTML = CSS
   document.getElementsByTagName('head')[0].appendChild(style)
 
-  window.onkeydown = function(event){event.stopPropagation();event.stopImmediatePropagation();event.preventDefault();event.returnValue=true;}
+  window.onkeydown = function(event){
+    event.stopPropagation();event.stopImmediatePropagation();event.preventDefault();event.returnValue=true;
+  }
+  window.onclick = function(){
+    const scrolldiv = document.querySelector('.ReactVirtualized__Grid.ReactVirtualized__List')
+    if (scrolldiv) scrolldiv.focus()
+  }
+  setTimeout(window.onclick, 5000)
 }
 
 setTimeout(

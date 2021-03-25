@@ -9,6 +9,8 @@
     * enlarge channel guide
     * disable _window.onkeydown()_ handler
       - allows scrolling page vertically with arrow keys
+    * retain focus on scrollable area
+      - allows scrolling page vertically with arrow keys regardless of where the user clicks on the page
   - notes:
     * [https://pluto.tv/live-tv](https://pluto.tv/live-tv) loads the unmodified channel guide
 * [ShidurLive](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/ShidurLive-embed.user.js)
