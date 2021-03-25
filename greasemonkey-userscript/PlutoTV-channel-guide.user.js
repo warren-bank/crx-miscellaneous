@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name         PlutoTV (stylebot) - channel guide
-// @description  Apply CSS tweaks to "live tv" page: hide video player, enlarge channel guide.
-// @version      0.1.0
+// @name         PlutoTV - channel guide
+// @description  Apply CSS/JS tweaks to "live tv" page: hide video player, enlarge channel guide, disable window.onkeydown() handler to allow scrolling page vertically with arrow keys.
+// @version      0.2.0
 // @match        *://pluto.tv/live-tv/*
 // @match        *://*.pluto.tv/live-tv/*
 // @icon         https://pluto.tv/images/favicon.png
 // @run-at       document-end
 // @homepage     https://github.com/warren-bank/crx-miscellaneous/tree/greasemonkey-userscript
 // @supportURL   https://github.com/warren-bank/crx-miscellaneous/issues
-// @downloadURL  https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/PlutoTV-stylebot-channel-guide.user.js
-// @updateURL    https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/PlutoTV-stylebot-channel-guide.user.js
+// @downloadURL  https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/PlutoTV-channel-guide.user.js
+// @updateURL    https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/PlutoTV-channel-guide.user.js
 // @namespace    warren-bank
 // @author       Warren Bank
 // @copyright    Warren Bank
@@ -42,6 +42,8 @@ const payload = function(){
   style.type      = 'text/css'
   style.innerHTML = CSS
   document.getElementsByTagName('head')[0].appendChild(style)
+
+  window.onkeydown = function(event){event.stopPropagation();event.stopImmediatePropagation();event.preventDefault();event.returnValue=true;}
 }
 
 setTimeout(
