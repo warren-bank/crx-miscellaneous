@@ -1,0 +1,14 @@
+test environment:
+=================
+* Fenix (Android) Nightly v122 from 12/11/2023
+
+v01 test in Fenix:
+==================
+* result: fail
+* cause:  Promises returned by call to chrome.tabs.query API are undefined
+* proof:
+    {let x = chrome.tabs.query({windowType: 'normal'}); console.log(typeof x, (x instanceof Promise))}
+      // undefined false
+
+    {let x = browser.tabs.query({windowType: 'normal'}); console.log(typeof x, (x instanceof Promise))}
+      // object true
