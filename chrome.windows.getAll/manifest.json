@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "chrome.windows.getAll",
+  "version": "1.0.0",
+  "description": "Display result for API: chrome.windows.getAll",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["*://example.com/chrome.windows.getAll"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "permissions": ["tabs"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chrome.windows.getAll@warren-bank.github.io"
+    }
+  }
+}

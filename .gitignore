@@ -1,0 +1,9 @@
+*.pem
+*.crx
+*.xpi
+*.zip
+
+**/*.pem
+**/*.crx
+**/*.xpi
+**/*.zip
