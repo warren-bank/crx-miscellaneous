@@ -5,6 +5,11 @@
     * [docs](https://developer.chrome.com/docs/extensions/reference/api/windows#method-getAll) for Google Chrome
     * [docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/windows/getAll) for Mozilla Firefox
   - [target URL](https://example.com/chrome.windows.getAll)
+* _chrome.tabs.query_
+  - Display result for API: `chrome.tabs.query`
+    * [docs](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-query) for Google Chrome
+    * [docs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs/query) for Mozilla Firefox
+  - [target URL](https://example.com/chrome.tabs.query)
 
 #### Legal:
 

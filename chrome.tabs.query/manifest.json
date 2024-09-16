@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "chrome.tabs.query",
+  "version": "1.0.0",
+  "description": "Display result for API: chrome.tabs.query",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["*://example.com/chrome.tabs.query"],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "permissions": ["tabs"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "chrome.tabs.query@warren-bank.github.io"
+    }
+  }
+}
