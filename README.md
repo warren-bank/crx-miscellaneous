@@ -25,6 +25,14 @@
   - website: [https://www.glassdoor.com/](https://www.glassdoor.com/)
   - summary:
     * undo dynamic changes made by website to cripple functionality when the visitor is not logged in (to a free user account)
+* [Clicknupload](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Clicknupload.user.js)
+  - website: [https://clickndownload.name/](https://clickndownload.name/)
+  - summary:
+    * automate user interactions required to obtain the direct URL for slow downloads
+  - note:
+    * it isn't possible to fully bypass the waiting period, because of server-side validation
+    * this script: enters the captcha, clicks the button after the waiting period has ended, copies the direct download URL to the clipboard
+    * the direct download URL is valid for 12 hours, can be accessed only from the current IP address, and can be used with any HTTP download client (ex: `wget`)
 
 #### Legal:
 
