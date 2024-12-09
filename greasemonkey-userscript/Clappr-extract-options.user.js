@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Clappr: extract options
 // @description  Generic script to extract and display the config options for an initialized instance of the Clappr video player. Has an option to redirect the extracted video to an external website, which is enabled by default. Runs on all websites by default; update "@match" to restrict its scope.
-// @version      1.0.0
+// @version      1.0.1
 // @match        *://*/*
 // @run-at       document-start
 // @homepage     https://github.com/warren-bank/crx-miscellaneous/tree/greasemonkey-userscript
@@ -52,6 +52,21 @@ var get_webcast_reloaded_url_from_clappr_options = function(options) {
   catch(e){
     captions_url = null
   }
+
+  try {
+    switch(options.mimeType.toLowerCase()) {
+      case 'application/x-mpegurl':
+        video_url += '#video.m3u8'
+        break
+      case 'application/dash+xml':
+        video_url += '#video.mpd'
+        break
+      case 'video/mp4':
+        video_url += '#video.mp4'
+        break
+    }
+  }
+  catch(e) {}
 
   return get_webcast_reloaded_url(video_url, captions_url, referer_url)
 }
