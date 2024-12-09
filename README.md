@@ -2,6 +2,12 @@
 
 #### GreaseMonkey Userscript Download URLs:
 
+* [Clappr: extract options](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Clappr-extract-options.user.js)
+  - website: `*`
+  - summary:
+    * generic script to extract and display the config options for an initialized instance of the Clappr video player
+    * has an option to redirect the extracted video to an external website, which is enabled by default
+    * runs on all websites by default; update `@match` to restrict its scope
 * [PlutoTV - channel guide](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/PlutoTV-channel-guide.user.js)
   - website: [https://pluto.tv/live-tv/](https://pluto.tv/live-tv/)
   - summary:
