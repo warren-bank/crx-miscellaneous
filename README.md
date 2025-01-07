@@ -39,6 +39,13 @@
     * it isn't possible to fully bypass the waiting period, because of server-side validation
     * this script: enters the captcha, clicks the button after the waiting period has ended, copies the direct download URL to the clipboard
     * the direct download URL is valid for 12 hours, can be accessed only from the current IP address, and can be used with any HTTP download client (ex: `wget`)
+* [Gmail: Chrome 85](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Gmail-Chrome-85.user.js)
+  - website: [https://mail.google.com/mail/](https://mail.google.com/mail/)
+  - summary:
+    * apply polyfill for missing APIs
+      - [`Element.replaceChildren()`](https://developer.mozilla.org/en-US/docs/Web/API/Element/replaceChildren)
+        * Chrome 86+
+        * Firfox 78+
 
 #### Legal:
 
