@@ -2,6 +2,13 @@
 
 #### GreaseMonkey Userscript Download URLs:
 
+* [Medium: proxy metered content](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Medium-proxy-metered-content.user.js)
+  - website: [https://medium.com/](https://medium.com/)
+  - summary:
+    * detect articles made available to Medium members only, and redirect URL through a proxy
+  - note:
+    * the script includes an array of available proxies
+    * to change the default selection, edit the index that identifies the selected proxy
 * [Clappr: extract options](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Clappr-extract-options.user.js)
   - website: `*`
   - summary:
