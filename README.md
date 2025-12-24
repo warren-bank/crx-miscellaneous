@@ -2,6 +2,10 @@
 
 #### GreaseMonkey Userscript Download URLs:
 
+* [Internet Archive: NYT Crossword Puzzles](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Internet-Archive-NYT-crossword-puzzles.user.js)
+  - website: [https://archive.org/download/nyt-puz/](https://archive.org/download/nyt-puz/)
+  - summary:
+    * add a small icon to the left of all AcrossLite (.puz) files, which opens the crossword puzzle file in an [online viewer](https://warren-bank.github.io/single-page-apps/crossword-puzzles/index.html) in a new browser tab
 * [Medium: proxy metered content](https://github.com/warren-bank/crx-miscellaneous/raw/greasemonkey-userscript/greasemonkey-userscript/Medium-proxy-metered-content.user.js)
   - website: [https://medium.com/](https://medium.com/)
   - summary:
